@@ -1,0 +1,17 @@
+apiVersion: v1
+
+
+kind: Pod
+
+metadata:
+  name: app-pod
+  labels:
+    app: apppods
+    location: vellore
+
+
+
+spec:
+  containers:
+    - image: ubuntu
+      name: ubuntu-app
