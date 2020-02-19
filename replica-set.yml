@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: app-pod
+  labels:
+    app: apppods
+    location: vellore
+    type: backend
+
+
+
+spec:
+  template:
+    metadata:
+      name: app-pod
+      labels:
+        app: apppods
+        location: vellore
+        type: backend
+    spec:
+      containers:
+        - name: ubuntu-app
+          image: ubuntu
+  replicas: 3
+  selector:
+    matchLabels:
+      type: backend
+      
