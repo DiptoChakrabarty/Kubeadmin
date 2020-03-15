@@ -4,4 +4,17 @@ metadata:
         name: httpd-frontend
         labels:
                 name: frontend
+spec:
+        replicas: 3
+        selector:
+                matchLabels:
+                        name: frontend
+        template:
+                metadata:
+                        labels:
+                                name: frontend
+                spec:
+                        containers:
+                                - name: httpd-frontend
+                                  image: httpd-alpine
 
