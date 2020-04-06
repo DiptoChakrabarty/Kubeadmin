@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-Pod
+spec:
+  containers:
+     - image: nginx
+       name: nginx-pod
