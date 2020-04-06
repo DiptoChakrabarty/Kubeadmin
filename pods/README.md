@@ -22,4 +22,17 @@
 ```sh
     kubectl get pods -o json "{.spec.containers[*].name}
 ```
+- Launch Pods imperative commands
+```sh
+    kubectl run --generator=run-pod/v1 redis-pod --image=redis:alpine
+```
+- Get pods of all namespace
+```sh
+    kubectl get pods --namespace=<namespace name>
+```
+- Label pods
+```sh
+    kubectl run --generator=run-pod/v1 redis-pod --image=redis:alpine  -l tier=db
+```
+
 
