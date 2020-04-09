@@ -18,21 +18,17 @@
 ```sh
     kubectl describe deployments 
 ```
-- No of containers in pod
+- Scale a deployment
 ```sh
-    kubectl get pods -o json "{.spec.containers[*].name}
+    kubectl scale deployments/<deployment-name>  --replicas=4
 ```
-- Launch Pods imperative commands
+- Information about deployment
 ```sh
-    kubectl run --generator=run-pod/v1 redis-pod --image=redis:alpine
+    kubectl describe deployments/<name>
 ```
-- Get pods of all namespace
+- Update a deployment image
 ```sh
-    kubectl get pods --namespace=<namespace name>
-```
-- Label pods
-```sh
-    kubectl run --generator=run-pod/v1 redis-pod --image=redis:alpine  -l tier=db
+    kubectl set image deployments/<deployment-name>   <deployment-name>=<new image name>
 ```
 
 
