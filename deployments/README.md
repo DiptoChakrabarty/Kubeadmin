@@ -2,7 +2,7 @@
 
 ### This repository contains various commands to work with kubernetes
 
-### Pods
+### Deployments
 
 - Check number of deployments present in system
 
@@ -30,5 +30,14 @@
 ```sh
     kubectl set image deployments/<deployment-name>   <deployment-name>=<new image name>
 ```
+- Rollout status
+```sh
+    kubectl rollout status deployments/<deployment-name>   
+```
+- Rollback deployment
+```sh
+    kubectl rollout undo deployment/<deployment-name>
+```
+
 
 
