@@ -20,4 +20,14 @@
     kubectl get pods --selector env=dev
 ```
 
+- Get pods with label bu
 
+```sh
+    kubectl get pods -l bu
+```
+
+- Get everything in env pod
+
+```sh
+    kubectl get all --selector env=pod
+```
