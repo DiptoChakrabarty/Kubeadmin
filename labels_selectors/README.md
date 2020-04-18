@@ -31,3 +31,13 @@
 ```sh
     kubectl get all --selector env=pod
 ```
+
+- Multiple Arguments
+
+```sh
+    kubectl get pods -l environment=production,tier=frontend
+
+    kubectl get pods -l 'environment in (production),tier in (frontend)'
+
+    kubectl get pods -l 'environment in (production),tier in (frontend)'
+```
