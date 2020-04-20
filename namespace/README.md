@@ -2,7 +2,7 @@
 
 ### This repository contains various commands to work with kubernetes
 
-### Deployments
+### Namespaces
 
 - Find all pods of all namespaces
 
