@@ -31,4 +31,10 @@
     kubectl get pods --namespace=dev
 ```
 
+- Switch to another namespace
+
+```sh
+    kubectl  config set-context $(kubectl config current-context) --namespace=dev
+```
+
 

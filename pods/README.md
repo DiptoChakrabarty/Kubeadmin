@@ -17,6 +17,8 @@
 - Information about the pod
 ```sh
     kubectl describe pods 
+
+    kubectl get pods -o wide
 ```
 - No of containers in pod
 ```sh
@@ -35,4 +37,9 @@
     kubectl run --generator=run-pod/v1 redis-pod --image=redis:alpine  -l tier=db
 ```
 
+- Edit pods
+
+```sh
+    kubectl edit pod <pod name>
+```
 
