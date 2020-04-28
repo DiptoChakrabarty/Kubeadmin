@@ -38,7 +38,7 @@ Env variables can be defined using configmap
 - Create configMap
 
 ```sh
-    kubectl create -f
+    kubectl create configmap <configmap name>
 ```
 
 - Create configmap declarative way

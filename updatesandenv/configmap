@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-04-28T02:34:18Z"
+  name: vars
+  namespace: default
+  resourceVersion: "99171"
+  selfLink: /api/v1/namespaces/default/configmaps/vars
+  uid: c923afdf-93ec-4a5e-87cb-9144a15eaca8
+~                                                   
