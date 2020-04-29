@@ -42,6 +42,10 @@
 ```sh
     kubectl edit deployment.v1.apps/nginx-deployment
 ```
+- Run deployment with replicas
+```sh
+    kubectl run <pod-name> --image=<image name> --replicas=<no of replicas>
+```
 
 
 

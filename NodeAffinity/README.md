@@ -11,3 +11,13 @@
 
     - preferredDuringSchedulingIgnoredDuringExecution
 ```
+
+- Label a node
+```sh
+  kubectl label node node01 <key>=<value>
+```
+
+- Check which pods are running on which nodes
+```sh
+    kubectl get pods -o wide
+```
