@@ -21,3 +21,8 @@
 ```sh
     kubectl get pods -o wide
 ```
+
+- Get node labels
+```sh
+ kubectl get nodes --show-labels
+```
