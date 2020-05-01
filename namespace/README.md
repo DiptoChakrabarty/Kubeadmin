@@ -35,6 +35,8 @@
 
 ```sh
     kubectl  config set-context $(kubectl config current-context) --namespace=dev
+    
+     kubectl  config set-context --current --namespace=dev
 ```
 
 
