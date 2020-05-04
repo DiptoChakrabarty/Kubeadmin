@@ -28,7 +28,7 @@
 ```
 - Update a deployment image
 ```sh
-    kubectl set image deployments/<deployment-name>   <deployment-name>=<new image name>
+    kubectl set image deployments/<deployment-name>   <container-name>=<new image name>
 ```
 - Rollout status
 ```sh
