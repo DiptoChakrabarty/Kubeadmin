@@ -8,7 +8,8 @@
 ## This repository contains the most useful commands to work with kubernetes
 
 
-- kubectl exec -it ubuntu-sleeper  /bin/bash
+* [Official Docs](https://kubernetes.io/docs/home/)
+
 
 
 
