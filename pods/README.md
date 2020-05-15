@@ -43,3 +43,9 @@
     kubectl edit pod <pod name>
 ```
 
+- Enter a pod
+
+```sh
+   kubectl exec -it ubuntu-sleeper  /bin/bash
+```
+
