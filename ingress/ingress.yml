@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta
+kind: Ingress
+metadata:
+    name: test-Ingress
+    namespace: critical
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    rules:
+        - http:
+            paths:
+                - backend:
+                    serviceName: web-service
+                    service:Port: 80
+                  path: /
+                  pathType: ImplementationSpecific
