@@ -45,6 +45,8 @@
 - Run deployment with replicas
 ```sh
     kubectl run <pod-name> --image=<image name> --replicas=<no of replicas>
+    
+    kubectl create deployment <deployment name> --image=<image name>
 ```
 
 
