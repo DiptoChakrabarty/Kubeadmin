@@ -7,6 +7,8 @@
 
 ## Add tls certificates
 ```sh
+   Use the file nginx-ingress-tls.yml for this example
+
  - Create self signed certificates and key
  openssl req -x509 -newkey rsa:4096 -sha256 -nodes  -keyout tls.key -out tls.crt -subj "/CN=nginx-ingress.com" -days 365
     x509: type of certificate
