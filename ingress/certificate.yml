@@ -1,0 +1,13 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+    name: nginx-ingress
+    namespace: default
+spec:
+   secretName: nginx-ingress-tls
+   issuerRef: 
+      name: ca-issuer
+      kind: Issuer
+  commonName: nginx-ingress.com
+  dnsNames:
+    - www.nginx-ingress.com
