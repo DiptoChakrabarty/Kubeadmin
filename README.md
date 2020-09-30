@@ -5,7 +5,13 @@
 
 
 
-## This repository contains the most useful commands to work with kubernetes
+- This repository contains the most useful commands to work with kubernetes
+
+- The purpose of this repository is to provide a guide to work with kubernetes 
+
+- It also provides step by step instructions to setup or run commands
+
+- Use the repo to debug any errors
 
 
 * [Official Docs](https://kubernetes.io/docs/home/)
@@ -16,18 +22,6 @@
    - [Kubernetes made Easy](https://www.youtube.com/watch?v=jgmdY73RF6w&list=PLMPZQTftRCS8Pp4wiiUruly5ODScvAwcQ)
 
 
-ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/ku
-bernetes/pki/etcd/server.key snapshot save  /tmp/snapshot-pre-boot.db
-
-
-ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
-     --name=master \
-     --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key \
-     --data-dir /var/lib/etcd-from-backup \
-     --initial-cluster=master=https://127.0.0.1:2380 \
-     --initial-cluster-token etcd-cluster-1 \
-     --initial-advertise-peer-urls=https://127.0.0.1:2380 \
-     snapshot restore /tmp/snapshot-pre-boot.db
 
 
 
