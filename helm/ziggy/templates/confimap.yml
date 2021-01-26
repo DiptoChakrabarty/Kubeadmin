@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+data:
+  Name: {{ .Values.name }}
+  Zone: {{ quote .Values.infra.zone }}
+  Region: {{ .Values.infra.region  | upper | quote }}
+  current: {{ now | date "2006-01-02" | upper }}
+  {{- if eq .Release.Name "zoggy" }}
+  release: "one"
+  {{- else if eq .Release.Name "ziggy" }}
+  release: "two"
+  {{- else }}
+  release: "three"
+  {{- end }}

@@ -35,3 +35,15 @@
 - Install a chart
   helm install ziggy-demo ./ziggy
 
+- See template output after install
+  helm get manifest ziggy
+
+- Check output of template
+  helm template {DIRECTORY}
+  helm install --debug --dry-run dryrun ziggy/
+
+- Change template value
+  helm install --dry-run --debug --set name=zygote valuestest ziggy/
+
+
+
