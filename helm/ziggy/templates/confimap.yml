@@ -8,6 +8,7 @@ metadata:
     rank: {{ .rank }}
     gpu: {{ .gpu }}
   {{- end }}
+{{ include "ziggy.systemlabels" . | indent 4 }}
 data:
   Name: {{ .Values.name }}
   Zone: {{ quote .Values.infra.zone }}
@@ -21,7 +22,8 @@ data:
   release: "three"
   {{- end }}
   Framework used: |-
-    {{- range .Values.frameworks }}
-    - {{ . | title | quote }}
+    {{- range $index,$top := .Values.frameworks }}
+    - {{ $index }} : {{ $top }}
     {{- end }}
+  
   
