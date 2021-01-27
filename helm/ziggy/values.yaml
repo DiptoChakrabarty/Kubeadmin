@@ -3,3 +3,11 @@ projectsName: helm-deploy
 infra:
   zone: east,west,bay
   region: 1a,1b,1c
+tags:
+  machine: drive
+  rank: colonel
+  gpu: amd
+frameworks:
+  - flask
+  - nodejs
+  - django
