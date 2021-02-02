@@ -45,5 +45,17 @@
 - Change template value
   helm install --dry-run --debug --set name=zygote valuestest ziggy/
 
+- Package chart 
+  helm package ziggy/
+
+- Send chart to chartmuseum
+  curl --data-binary "@ziggy-0.1.0.tgz" http://localhost:8085/api/charts
+
+- Push using plugin
+  helm push {DIRECTORY} {REPONAME}
+
+chartmuseum --debug --port=8085 \
+  --storage="local" \
+  --storage-local-rootdir="./chartstorage"
 
 
