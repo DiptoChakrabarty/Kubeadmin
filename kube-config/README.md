@@ -26,5 +26,10 @@ kubectl config --kubeconfig=config-demo set-context exp-scratch --cluster=scratc
  kubectl config view --kubeconfig=<filename>
 ```
 
+- Output of specific context
+```sh
+kubectl config view --minify --flatten --context={CONTEXTNAME} > {CONTEXTNAME}.config
+```
+
 
 
