@@ -26,6 +26,9 @@
 - Uninstall a repository
   helm uninstall myairflow
 
+- History about the objects deployed
+  helm history {DEPLOYEDCHART}
+
 
 ### Custom Charts
 
@@ -45,6 +48,9 @@
 - Change template value
   helm install --dry-run --debug --set name=zygote valuestest ziggy/
 
+
+### Charts and Repository
+
 - Package chart 
   helm package ziggy/
 
@@ -53,6 +59,23 @@
 
 - Push using plugin
   helm push {DIRECTORY} {REPONAME}
+  helm repo update
+  helm search repo {REPONAME}
+
+- Remove a repository
+  helm repo remove {REPONAME}
+
+- Check previous versions
+  helm search repo -l {REPONAME}
+
+- Install chart from repository
+   helm install {INSTALLNAME} {REPOSITORYNAME}/{CHARTNAME}
+  
+- Upgrade using helm
+  helm upgrade {INSTALLNAME} {REPOSITORYNAME}/{CHARTNAME}
+
+- Rollback a install
+  helm rollback (INSTALLNAME) {REVISION NO}
 
 chartmuseum --debug --port=8085 \
   --storage="local" \
