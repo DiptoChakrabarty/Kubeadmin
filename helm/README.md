@@ -77,8 +77,19 @@
 - Rollback a install
   helm rollback (INSTALLNAME) {REVISION NO}
 
-chartmuseum --debug --port=8085 \
-  --storage="local" \
-  --storage-local-rootdir="./chartstorage"
+
+
+### Chartmuseum
+
+- Set chartmuseum storage 
+  chartmuseum --debug --port=8085 \
+    --storage="local" \
+    --storage-local-rootdir="./chartstorage"
+
+- Add chartmuseum repo
+  helm repo add mychartrepo http://localhost:8085
+
+- Push using the push plugin
+  helm push ziggy/ mychartrepo
 
 
