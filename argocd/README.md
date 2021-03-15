@@ -4,3 +4,5 @@
 - kubectl create namespace argocd
 
 - kubectl apply -n argocd -f config/install.yaml 
+
+- eval $(minikube docker-env)

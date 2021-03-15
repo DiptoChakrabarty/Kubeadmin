@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+   name: argodemo-ingress
+   annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    rules:
+    - host: example.com 
+      http:
+        paths:
+        - backend:
+            serviceName: argodemo
+            servicePort: 5000
+          path: /
