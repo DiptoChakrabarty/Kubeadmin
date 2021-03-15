@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: skaffoldflask
+build:
+  artifacts:
+  - image: skaffoldflask
+deploy:
+  kubectl:
+    manifests:
+      - ./skaffold-demo/*

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skaffolddemo
+  labels:
+    name: skaffolddemo
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: skaffolddemo
+      app: demo
+  template:
+    metadata:
+      labels:
+        name: skaffolddemo
+        app: demo
+    spec:
+      containers:
+        - name: skaffolddemo
+          image: skaffoldflask
+          imagePullPolicy: Never
+          ports:
+              - containerPort: 5000
+
+
