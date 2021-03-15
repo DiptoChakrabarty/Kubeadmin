@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: skaffolddemo
+  name: argodemo
   labels:
-    name: skaffolddemo
+    name: argodemo
     app: demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: skaffolddemo
+      name: argodemo
       app: demo
   template:
     metadata:
       labels:
-        name: skaffolddemo
+        name: argodemo
         app: demo
     spec:
       containers:
-        - name: skaffolddemo
-          image: skaffoldflask
+        - name: argodemo
+          image: argoflask
           imagePullPolicy: Never
           ports:
               - containerPort: 5000
