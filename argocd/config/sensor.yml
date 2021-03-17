@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: sensor
+spec:
+  template: 
+    serviceAccountName: argo-events-sa
+  dependencies:
+  - name: request
+    eventSourceName: webshook
+    eventName: argo-webhook
+  triggers:
+  - template:
+      name: request
+      k8s:
+        group: ""
+        version: v1
+        resource: pods
+        operation: create
+        source:
+          resource:
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              generateName: request-
+              labels:
+                app: request
+            spec:
+              containers:
+              - name: hello
+                image: alpine
+                command: ["echo"]
+                args: ["This is the message you sent me:\n", ""]
+              restartPolicy: Never
+        parameters:
+          - src:
+                dependencyName: request
+                dataKey: body.message
+            dest: spec.containers.0.args.1
