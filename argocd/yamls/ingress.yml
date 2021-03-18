@@ -11,5 +11,5 @@ spec:
         paths:
         - backend:
             serviceName: argodemo
-            servicePort: 5000
+            servicePort: 80
           path: /

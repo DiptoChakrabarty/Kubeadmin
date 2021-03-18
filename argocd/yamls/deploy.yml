@@ -19,9 +19,9 @@ spec:
     spec:
       containers:
         - name: argodemo
-          image: argoflask
+          image: nginx
           imagePullPolicy: Never
           ports:
-              - containerPort: 5000
+              - containerPort: 80
 
 

@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flask-app
+  name: argo-app
   namespace: argocd
 spec:
-  project: default
+  project: development
   source:
     repoURL: https://github.com/DiptoChakrabarty/Kubeadmin.git
     targetRevision: HEAD
@@ -12,3 +12,7 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
