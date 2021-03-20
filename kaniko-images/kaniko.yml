@@ -6,7 +6,7 @@ spec:
   containers:
     - name: kanikobuild
       image: gcr.io/kaniko-project/executor:debug
-      args: ["--dockerfile=./Dockerfile",
+      args: ["--dockerfile=Dockerfile",
             "--context=dir:///workspace",
             "--destination=diptochakrabarty/kanikobuild"]
       volumeMounts:
@@ -24,4 +24,4 @@ spec:
             path: config.json
     - name: context
       hostPath:
-        path: $PWD/workspace
+        path: /home/chuck/Desktop/Projects/Kubeadmin/kaniko-images/workspace/
