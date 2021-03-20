@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kanikobuild
+spec:
+  containers:
+    - name: kanikobuild
+      image: gcr.io/kaniko-project/executor:debug
+      args: ["--dockerfile=./Dockerfile",
+            "--context=dir:///workspace",
+            "--destination=diptochakrabarty/kanikobuild"]
+      volumeMounts:
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
+        - name: context
+          mountPath: /workspace/
+  restartPolicy: Never
+  volumes:
+    - name: kaniko-secret
+      secret:
+        secretName: regcred
+        items:
+          - key: .dockerconfigjson
+            path: config.json
+    - name: context
+      hostPath:
+        path: $PWD/workspace
