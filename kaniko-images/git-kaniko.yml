@@ -12,6 +12,8 @@ spec:
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
+        - name: context
+          mountPath: /workspace
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
@@ -20,3 +22,6 @@ spec:
         items:
           - key: .dockerconfigjson
             path: config.json
+    - name: context
+      hostPath:
+        path: /home/chuck/Desktop/Projects/Kubeadmin/kaniko-images/workspace/
