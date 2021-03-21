@@ -6,14 +6,12 @@ spec:
   containers:
     - name: kanikobuild
       image: gcr.io/kaniko-project/executor:debug
-      args: ["--dockerfile=Dockerfile",
-            "--context=dir:///workspace",
+      args: ["--dockerfile=kaniko-images/workspace/Dockerfile",
+            "--context=git://github.com/DiptoChakrabarty/Kubeadmin",
             "--destination=diptochakrabarty/kanikobuild"]
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
-        - name: context
-          mountPath: /workspace/
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
@@ -22,6 +20,3 @@ spec:
         items:
           - key: .dockerconfigjson
             path: config.json
-    - name: context
-      hostPath:
-        path: /home/chuck/Desktop/Projects/Kubeadmin/kaniko-images/workspace/
