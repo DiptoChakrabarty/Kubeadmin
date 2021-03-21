@@ -24,4 +24,4 @@ spec:
             path: config.json
     - name: context
       hostPath:
-        path: /home/chuck/Desktop/Projects/Kubeadmin/kaniko-images/workspace/
+        path: /home/chuck/Desktop/Projects/Kubeadmin/kaniko-images
