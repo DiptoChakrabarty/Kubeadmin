@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argodemo
+  labels:
+    name: argodemo
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: argodemo
+      app: demo
+  template:
+    metadata:
+      labels:
+        name: argodemo
+        app: demo
+    spec:
+      containers:
+        - name: argodemo
+          image: nginx
+          imagePullPolicy: Never
+          ports:
+              - containerPort: 80
+
+
