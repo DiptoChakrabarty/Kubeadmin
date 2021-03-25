@@ -1,0 +1,6 @@
+bases:
+  - ../../yamls
+
+namePrefix: prod-
+commonLabels:
+  env: prod
