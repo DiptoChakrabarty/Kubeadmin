@@ -1,0 +1,5 @@
+resources:
+  - deploy.yml
+
+commonLabels:
+  cluster: minikube
