@@ -7,7 +7,7 @@
     --git-user=${GHUSER} \
     --git-email=${GHUSER}@users.noreply.github.com \
     --git-url=git@github.com:${GHUSER}/Kubeadmin \
-    --git-path=flux/yamls/ \
+    --git-path=flux/kustomize/ \
     --git-branch=master \
     --namespace=flux | kubectl apply -f -
 
@@ -20,7 +20,7 @@ fluxctl install \
     --git-user=${GHUSER} \
     --git-email=${GHUSER}@users.noreply.github.com \
     --git-url=git@github.com:${GHUSER}/Kubeadmin \
-    --git-path=flux/yamls/ \
+    --git-path=flux/kustomize/ \
     --git-branch=master \
     --namespace=flux | kubectl delete -f -
 
