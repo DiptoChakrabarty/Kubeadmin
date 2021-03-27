@@ -1,0 +1,6 @@
+bases:
+  - ../../kustomize
+
+namePrefix: dev-
+commonLabels:
+  env: dev
