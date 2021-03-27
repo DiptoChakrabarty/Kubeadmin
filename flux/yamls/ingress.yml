@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-   name: argodemo-ingress
+   name: fluxdemo-ingress
    annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -10,6 +10,6 @@ spec:
       http:
         paths:
         - backend:
-            serviceName: argodemo
+            serviceName: fluxdemo
             servicePort: 80
           path: /

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: argodemo
+  name: fluxdemo
 spec:
   ports:
     - name: http
       port: 80
       protocol: TCP
   selector:
-    name: argodemo
+    name: fluxdemo
     app: demo
