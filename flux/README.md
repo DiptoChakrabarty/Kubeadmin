@@ -31,3 +31,12 @@ fluxctl install \
 - get key using fluxctl identity --k8s-fwd-ns flux
 
 - give write access
+
+
+## GIT SOURCE
+- Download using curl -s https://toolkit.fluxcd.io/install.sh | sudo bash
+
+- Install toolkit using flux install --namespace=flux
+flux create source git gitinfo \
+    --url=https://github.com/DiptoChakrabarty/Kubeadmin \
+    --branch=master --namespace=flux
