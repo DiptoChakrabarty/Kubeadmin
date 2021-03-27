@@ -5,7 +5,7 @@ metadata:
   namespace: flux
 spec:
   interval: 5m
-  path: "./flux/kustomize"
+  path: "./flux/kustomize-envs/dev"
   prune: true
   sourceRef:
     kind: GitRepository
