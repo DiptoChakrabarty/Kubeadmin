@@ -1,6 +1,6 @@
 ## Setup 
 ```sh
-    * Installation 
+* Installation 
     - kubectl create ns flux
 
     - export GHUSER="DiptoChakrabarty"

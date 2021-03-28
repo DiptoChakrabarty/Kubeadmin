@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: token-credentials
+  namspace: flux
+type: Opaque
+data:
+  username: <BASE64 USERNAME>
+  password: <BASE64 PASSWORD>
