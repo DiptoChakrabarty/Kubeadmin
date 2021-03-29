@@ -54,6 +54,8 @@ eksctl create nodegroup --cluster={CLUSTER NAME} --region=ap-south-1 --name={CLU
 ```
 
 ### Delete Cluster
+```sh
  - eksctl delete cluster {CLUSTER NAME}
 
  - eksctl delete nodegroup --cluster={CLUSTER NAME} --name={NODE GROUP NAME}
+```
