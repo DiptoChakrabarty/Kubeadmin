@@ -3,7 +3,7 @@
 
 
 ### Basic Commands
-
+```sh
 - Update helm Version
   curl -L https://git.io/get_helm.sh | bash -s -- --version {VERSION}
 
@@ -28,10 +28,10 @@
 
 - History about the objects deployed
   helm history {DEPLOYEDCHART}
-
+```
 
 ### Custom Charts
-
+```sh
 - Create a chart
   helm create ziggy
 
@@ -47,10 +47,10 @@
 
 - Change template value
   helm install --dry-run --debug --set name=zygote valuestest ziggy/
-
+```
 
 ### Charts and Repository
-
+```sh
 - Package chart 
   helm package ziggy/
 
@@ -76,11 +76,11 @@
 
 - Rollback a install
   helm rollback (INSTALLNAME) {REVISION NO}
-
+```
 
 
 ### Chartmuseum
-
+```sh
 - Set chartmuseum storage 
   chartmuseum --debug --port=8085 \
     --storage="local" \
@@ -91,5 +91,5 @@
 
 - Push using the push plugin
   helm push ziggy/ mychartrepo
-
+```
 
