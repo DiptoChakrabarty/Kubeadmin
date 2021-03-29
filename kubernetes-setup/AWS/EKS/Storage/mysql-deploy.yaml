@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ebs-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+      aws: ebs
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+        aws: ebs
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.6
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: toor
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-pvc-storage
+              mountPath: /var/lib/mysql
+            - name: usermanage
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: mysql-pvc-storage
+          persistentVolumeClaim:
+            claimName: ebs-pv-claim
+        - name: usermanagement
+          configMap:
+            name: usermanagement
+
