@@ -14,6 +14,10 @@ spec:
       labels: 
         app: userauth
     spec:
+      initContainers:
+        - name: dbcheck
+          image: busybox:1.31
+          command: ['sh','-c','echo -e "Check mysql status"; while ! nc -z mysql 3306; do sleep 1; printf "-"; done; echo -e ' >> MySql DB Server has started;']
       containers:
         - name: userauth
           image: diptochakrabarty/userapi
@@ -30,3 +34,24 @@ spec:
               value: "root"            
             - name: password
               value: "dbpassword11"
+      livenessProbe:
+        exec:
+          command:
+            - /bin/sh
+            - -c
+            - nc -z localhost 5000
+        initialDelaySeconds: 20
+        periodSeconds: 10
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 5000
+        initialDealySeconds: 40
+        periodSeconds: 10
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "128Mi"
+        limits:
+          cpu: "1000m"
+          memory: "500Mi"
