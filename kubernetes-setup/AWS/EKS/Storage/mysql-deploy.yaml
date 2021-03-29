@@ -28,7 +28,7 @@ spec:
           volumeMounts:
             - name: mysql-pvc-storage
               mountPath: /var/lib/mysql
-            - name: usermanage
+            - name: usermanagement
               mountPath: /docker-entrypoint-initdb.d
       volumes:
         - name: mysql-pvc-storage

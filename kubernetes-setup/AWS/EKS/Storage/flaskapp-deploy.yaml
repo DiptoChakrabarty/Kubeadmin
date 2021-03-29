@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: userauth
+  labels:
+    app: userauth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userauth
+  template:  
+    metadata:
+      labels: 
+        app: userauth
+    spec:
+      containers:
+        - name: userauth
+          image: diptochakrabarty/userapi
+          ports: 
+            - containerPort: 5000          
+          env:
+            - name: uri
+              value: "mysql+pymysql://root:toor@mysql:3306/usermgmt"            
+            - name: port
+              value: "3306"            
+            - name: database
+              value: "usermgmt"            
+            - name: name
+              value: "root"            
+            - name: password
+              value: "dbpassword11"

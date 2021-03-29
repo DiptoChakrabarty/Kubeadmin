@@ -1,0 +1,14 @@
+piVersion: v1
+kind: Service
+metadata:
+  name: userauth
+  labels: 
+    app: userauth
+spec:
+  type: NodePort
+  selector:
+    app: userauth
+  ports: 
+    - port: 5000
+      targetPort: 5000
+      nodePort: 31231
