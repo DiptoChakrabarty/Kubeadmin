@@ -1,5 +1,5 @@
 namespace: flux
 bases:
-  - github.com/fluxcd/flux/deploy
+  - github.com/fluxcd/flux//deploy
 patchesStrategicMerge:
   - patch.yaml
