@@ -23,5 +23,17 @@
 
 - Get information about clusters
    kind get clusters
+```
+
+### Kind multiple worker nodes
+```sh
+- Create cluster from config file
+  kind create cluster --name kindcluster --config kind-config.yaml
+
+- Get nodes information
+   kind get nodes 
+
+- Create cluster with multiple master nodes which creates a  haproxyloadbalancer
+kind create cluster --name kindcluster --config kind-multimaster.yaml
 
 ```
