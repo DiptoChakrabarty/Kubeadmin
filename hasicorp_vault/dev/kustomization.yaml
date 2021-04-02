@@ -1,6 +1,5 @@
 bases:
   - ../yamls
 
-namePrefix: dev-
 commonLabels:
   env: dev
