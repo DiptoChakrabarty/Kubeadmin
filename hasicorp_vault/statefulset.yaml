@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: vault
-  namespace: vault
   labels:
     app.kubernetes.io/name: vault
+    component: server
 spec:
   serviceName: vault
   podManagementPolicy: Parallel
@@ -88,18 +88,5 @@ spec:
             mountPath: /vault/config
           - name: data
             mountPath: /vault/data
-          readinessProbe:
-            httpGet:
-              path: "/v1/sys/health?standbyok=true"
-              port: 8200
-              scheme: HTTPS
-          livenessProbe:
-            httpGet:
-              path: "/v1/sys/health?standbyok=true"
-              port: 8200
-              scheme: HTTPS
-            initialDelaySeconds: 60
-            periodSeconds: 3
-            successThreshold: 1
-            timeoutSeconds: 5
+
       

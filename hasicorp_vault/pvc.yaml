@@ -4,12 +4,10 @@ metadata:
   labels:
     app: vault
   name: vault-pvc
-  namespace: vault
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
-  storageClassName: gp2
+      storage: 3Gi
   
