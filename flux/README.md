@@ -32,6 +32,8 @@
 - get key using fluxctl identity --k8s-fwd-ns flux
 
 - give write access
+
+- fluxctl sync --k8s-fwd-ns flux
 ```
 
 ## Flux and Kustomize
