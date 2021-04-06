@@ -42,12 +42,12 @@ export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
 ```
 
 - Create S3 bucket and add env vars to instance
-'''sh
+```sh
 
 export NAME=kopsdemo.k8s.local
 export KOPS_STATE_STORE=s3://kops-dipto
 
-'''
+```
 
 - Create cluster config files using kops 
 ```sh
