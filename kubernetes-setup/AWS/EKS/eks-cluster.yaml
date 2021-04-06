@@ -1,0 +1,26 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: ekscluster
+  region: ap-south-1
+nodeGroups:
+  - name: worker-node
+    instanceType: t2.medium
+    availabilityZones: ["ap-south-1a","ap-south-1b"]
+    desiredCapacity: 3
+    minSize: 3
+    maxSize: 5
+    volumeSize: 10
+    labels: {role: worker}
+    tags:
+        nodegroup-role: worker
+    ssh:
+      publicKeyName: eks
+    iam: 
+      withAddonPolicies:
+          externalDNS: true
+          certManager: true
+          autoScaler: true
+          appMesh: true
+          albIngress: true
+          imageBuilder: true
