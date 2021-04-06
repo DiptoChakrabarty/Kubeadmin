@@ -1,4 +1,6 @@
-## EBS CSI DRIVER
+# Storage Methods
+
+## EBS CSI DRIVERS
 
 ### Installation
 ```sh
@@ -41,4 +43,34 @@
 
 - Deploy CSI Driver
   kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+```
+
+
+## RDS DATABASE 
+
+### INITIAL SETUP
+
+#### SECURITY GROUP
+```sh
+- There should be 2 VPCs present , one default and one of EKS
+
+- Create security group for mysql in eks vpc
+
+```
+
+#### SUBNET GROUP
+```sh
+ - Provide RDS DB name and description
+
+ - Select VPC as EKS provisoned one
+
+ - Select Avalability zones
+
+ - Select private subnets of EKS VPC for rds subnets and create
+
+```
+
+#### CREATE DATABASE
+```sh
+
 ```
