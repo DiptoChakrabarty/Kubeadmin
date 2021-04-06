@@ -73,4 +73,23 @@
 #### CREATE DATABASE
 ```sh
 
+- Select mysql engine
+
+- Provide username and password
+
+- Select the EKS VPC , previous subnet group and security group
+
+```
+
+#### CONNECT TO DATABASE FROM KUBERNETES CLUSTER
+```sh
+- Create external name service in cluster
+
+- Use rds-external-name-svc.yaml to create a service
+
+- kubectl apply -f rds-external-name-svc.yaml
+
+- Connect to rds database from kubernetes cluster
+
+- kubectl run -it --rm --image=mysql --restart=Never mysql-client --mysql -h {RDS ENDPOINT} -u {USERNAME} -p{PASSWORD}
 ```
