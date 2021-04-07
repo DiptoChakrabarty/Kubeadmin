@@ -44,4 +44,13 @@
  kubectl config view --minify --output 'jsonpath={..namespace}'
 ```
 
+- Delete namespace in terminating state
+
+```sh
+ kubectl get namespace {namespace} -o json > ns.json
+ 
+ Remove kubernetes from finalizers in json
+ 
+ kubectl replace --raw "/api/v1/namespaces/{namespace}/finalize" -f ./ns.json
+```
 
