@@ -20,7 +20,7 @@ spec:
       containers:
         - name: argodemo
           image: nginx
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
               - containerPort: 80
 
