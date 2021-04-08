@@ -1,5 +1,12 @@
 # ARGO CD
 
+## Directory Structure
+```sh
+- install : installation of argocd in cluster taken from official argocd documentation
+- config : custom resources to define in argocd
+- yamls : resources we want argocd to deploy
+```
+
 ## ARGOCD
 
 ```sh
@@ -7,11 +14,15 @@
 
 - kubectl apply -n argocd -f config/install.yaml 
 
-- eval $(minikube docker-env)
+- eval $(minikube docker-env) this step is only for minikube
 
 - Create docker image
 
+- Use config/project.yml to generate development project 
+
 - Use config/app.yml to generate own application for a repository CD
+
+- Resources should be deployed now
 ```
 
 ## ARGO EVENTS
