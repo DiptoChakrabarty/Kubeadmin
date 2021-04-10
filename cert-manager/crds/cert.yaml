@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: example-com
+spec:
+    secretName: example-com-tls
+    issuerRef:
+      name: ca-issuer
+      kind: Issuer
+    commonName: example.com
+    dnsNames:
+      - www.example.com
