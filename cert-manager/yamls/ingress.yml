@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: certdemo-ingress
+   annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    tls:
+      - secretName: example-com-tls
+        hosts:
+          - example.com
+    rules:
+    - host: example.com 
+      http:
+        paths:
+        - backend:
+            service:
+              name: certdemo
+              port:
+                number: 80
+          path: /
+          pathType: Prefix

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp
+  labels:
+    app: flaskapp
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapp
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: flaskapp
+        env: dev
+    spec:
+      containers:
+        - name: flaskapp
+          image: diptochakrabarty/eksflask:latest
+          imagePullPolicy: Always
+          env:
+              - name: PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                      name: app-secrets
+                      key: password
+              - name: USER
+                valueFrom:
+                  secretKeyRef:
+                      name: app-secrets
+                      key: username
+              - name: DATABASE
+                valueFrom:
+                  secretKeyRef:
+                      name: app-secrets
+                      key: database
+              - name: SVC
+                valueFrom:
+                  secretKeyRef:
+                      name: app-secrets
+                      key: svc
+              - name: SECRET
+                valueFrom:
+                  secretKeyRef:
+                      name: app-secrets
+                      key: secret
+
+          ports:
+            - containerPort: 5000

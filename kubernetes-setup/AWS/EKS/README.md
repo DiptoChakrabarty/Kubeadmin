@@ -40,6 +40,8 @@
 - Create Node Group with autoscaling alb ingress and dns access
  ```sh
 eksctl create nodegroup --cluster={CLUSTER NAME} --region=ap-south-1 --name={CLUSTER NODEGROUP NAME} --node-type=t2.medium --nodes=2 --nodes-min=2 --nodes-max=5  --node-volume-size=10 --ssh-access --ssh-public-key=eks --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access 
+
+For private nodegroups attach option --node-private-networking
 ```
 
 - Get nodes
@@ -55,7 +57,7 @@ eksctl create nodegroup --cluster={CLUSTER NAME} --region=ap-south-1 --name={CLU
 
 ### Delete Cluster
 ```sh
- - eksctl delete cluster {CLUSTER NAME}
+ - eksctl delete cluster --name {CLUSTER NAME}
 
  - eksctl delete nodegroup --cluster={CLUSTER NAME} --name={NODE GROUP NAME}
 ```

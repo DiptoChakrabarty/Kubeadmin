@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: certdemo
+  labels:
+    name: certdemo
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: certdemo
+      app: demo
+  template:
+    metadata:
+      labels:
+        name: certdemo
+        app: demo
+    spec:
+      containers:
+        - name: certdemo
+          image: nginx
+          imagePullPolicy: Always
+          ports:
+              - containerPort: 80
+
+
