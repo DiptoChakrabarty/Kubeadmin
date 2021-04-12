@@ -28,6 +28,9 @@
 
 - History about the objects deployed
   helm history {DEPLOYEDCHART}
+  
+ - Set image tag
+  helm install --set image.tag=12345 <your-chart-name>
 ```
 
 ### Custom Charts
