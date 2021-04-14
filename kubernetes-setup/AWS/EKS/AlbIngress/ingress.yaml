@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: certdemo-ingress
+   annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    # Ingress Core Settings
+      kubernetes.io/ingress.class: "alb"
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      # Health Check Settings
+      alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
+      alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+      alb.ingress.kubernetes.io/healthcheck-path: /usermgmt/health-status
+      alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+      alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+      alb.ingress.kubernetes.io/success-codes: '200'
+      alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+      alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+spec:
+    rules:
+    - host: example.com 
+      http:
+        paths:
+        - backend:
+            service:
+              name: certdemo
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
