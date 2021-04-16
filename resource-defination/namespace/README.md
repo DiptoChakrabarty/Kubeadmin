@@ -44,6 +44,12 @@
  kubectl config view --minify --output 'jsonpath={..namespace}'
 ```
 
+- Get all contexts
+
+```sh
+kubectl config get-contexts
+```
+
 - Delete namespace in terminating state
 
 ```sh
