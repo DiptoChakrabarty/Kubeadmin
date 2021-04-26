@@ -87,6 +87,8 @@ kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub
 
 - Check cluster status
 ```sh
+   kops export kubecfg --admin
+   
    kops validate cluster 
 
    kubectl get nodes
