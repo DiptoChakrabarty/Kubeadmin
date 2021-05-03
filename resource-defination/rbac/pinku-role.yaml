@@ -1,8 +1,8 @@
-apiversion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: default,developer
-  name: developer
+  namespace: argo
+  name: pinku-role
 rules:
   - apiGroups: ["","apps","extensions"]
     resources: ["pods","deployments","services","ingress"]

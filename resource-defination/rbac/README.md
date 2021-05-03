@@ -49,17 +49,35 @@
 
 - openssl x509 -req -in pinku.csr -CA ${HOME}/.minikube/ca.crt -CAkey ${HOME}/.minikube/ca.key -CAcreateserial -out pinku.crt -days 45  
 
-- If Pinku creates own certificate
-    - kubectl --kubeconfig {kubeconfig filename} config set-cluster {cluster name} --server {server url} --certificate-authority=${HOME}/.minikube/ca.crt (create kubeconfig)
+```
 
-    kubectl --kubeconfig pinku.kubeconfig config set-cluster minikube --server https://192.168.99.100:8443 --certificate-authority=${HOME}/.minikube/ca.crt
+#### User Creates Own KubeConfig
 
-    - kubectl --kubeconfig {kubeconfig filename} config set-credentials {username } --client-certificate {user crt} --client-key {user key}
-    
-    kubectl --kubeconfig pinku.kubeconfig config set-credentials pinku --client-certificate pinku.crt --client-key pinku.key   (attach user)
+```sh
+- kubectl --kubeconfig {kubeconfig filename} config set-cluster {cluster name} --server {server url} --certificate-authority=${HOME}/.minikube/ca.crt (create kubeconfig)
 
-    - kubectl --kubeconfig {kubeconfig filename}  config set-context {context name} --cluster  {cluster name} --namespace {namespace} --user {username}
-    
-      kubectl --kubeconfig pinku.kubeconfig  config set-context pinku-kube --cluster  minikube --namespace argo --user pinku  (attach context and namespace)
+  kubectl --kubeconfig pinku.kubeconfig config set-cluster minikube --server https://192.168.99.100:8443 --certificate-authority=${HOME}/.minikube/ca.crt
+
+- kubectl --kubeconfig {kubeconfig filename} config set-credentials {username } --client-certificate {user crt} --client-key {user key}
+
+  kubectl --kubeconfig pinku.kubeconfig config set-credentials pinku --client-certificate pinku.crt --client-key pinku.key   (attach user)
+
+- kubectl --kubeconfig {kubeconfig filename}  config set-context {context name} --cluster  {cluster name} --namespace {namespace} --user {username}
+
+  kubectl --kubeconfig pinku.kubeconfig  config set-context pinku-kube --cluster  minikube --namespace argo --user pinku  (attach context and namespace)
+
+- Check using kubectl --kubeconfig {kubeconfig filename} get pods
+```
+
+#### Admin Creates KubeConfig
+
+```sh
+- Edit Original Admin KubeConfig
+
+- Replace Values in context user and namespace
+
+- In client certificate and key add users client and key directly
+
+- cat {user crt} | base64 -w0  (encode crt to base64 and avoid linewrap)
 
 ```
