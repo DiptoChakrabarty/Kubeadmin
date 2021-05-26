@@ -4,6 +4,9 @@
 
 ### Ingress
 
+- [RBAC AND DEPLOY](https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.0/deploy/static/mandatory.yaml)
+- [SERVICE](https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.0/deploy/static/provider/cloud-generic.yaml)
+
 
 ## Add tls certificates
 ```sh
