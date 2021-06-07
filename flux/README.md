@@ -56,5 +56,7 @@
 ```sh
 - kubectl apply -k fluxcd/
 
+- Have .flux.yaml in target directory with patchfile reference
+
 ```
 
