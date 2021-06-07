@@ -37,6 +37,8 @@
 ```
 
 ## Flux and Kustomize
+
+### Flux ToolKit
 ```sh
  - Download toolkit cli : curl -s https://toolkit.fluxcd.io/install.sh | sudo bash 
 
@@ -47,6 +49,12 @@
  - apply gitinfo.yml to specify git repo and kustomize.yml to specify which gitrepo to reference and other details
 
  - ensure kustomization.yaml file is present in your working repo which kustomize will build
+
+```
+
+### Using patch files
+```sh
+- kubectl apply -k fluxcd/
 
 ```
 
