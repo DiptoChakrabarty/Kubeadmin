@@ -1,6 +1,6 @@
 bases:
   - ../../kustomize
 
-namePrefix: dev-
+namePrefix: prod-
 commonLabels:
-  env: dev
+  env: prod

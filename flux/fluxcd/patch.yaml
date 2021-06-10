@@ -14,7 +14,7 @@ spec:
             - --memcached-service=
             - --ssh-keygen-dir=/var/fluxd/keygen
             - --git-branch=master
-            - --git-path=flux/kustomize-envs/dev
+            - --git-path=flux/kustomize-envs/dev,flux/kustomize-envs/prod
             - --git-user=DiptoChakrabarty
             - --git-email=DiptoChakrabarty@users.noreply.github.com
             - --git-url=git@github.com:DiptoChakrabarty/Kubeadmin
