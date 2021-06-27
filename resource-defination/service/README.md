@@ -11,4 +11,9 @@
  2) ClusterIp : creates virtual ip inside cluster
  3) LoadBalancer: provides loadbalancer to app
  ```
+ 
+ - Port Forward
+ ```sh
+ kubectl port-forward svc/nginx-demo 8000:80
+ ```
 
