@@ -1,0 +1,51 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: demo-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: demo-nginx
+        image: "nginx"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo-nginx
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx 
+spec:
+  rules:
+  - host: app.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: demo-nginx
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
