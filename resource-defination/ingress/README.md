@@ -8,6 +8,15 @@
 - [SERVICE](https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.0/deploy/static/provider/cloud-generic.yaml)
 
 
+## Steps
+```sh
+- Deploy Cert Manager in your cluster 
+- Create an issuer 
+- Add Cert Manager Loadbalancer CNAME in DNS records of dns provider
+- Add issuer name and certificate making name in ingress
+```
+
+
 ## Add tls certificates
 ```sh
    Use the file nginx-ingress-tls.yml for this example
@@ -50,3 +59,15 @@
 
  - openssl req -x509 -new -nodes -key ca.key -sha256 -subj "/CN=nginx-ingress.com" -days 1024 -out ca.crt -extensions v3_ca  -config openssl-ca.cnf
 ```
+
+- HelpFul Debugging Commands
+```sh
+- When normal ingress is made without certmanager
+  Find loadbalancer ip using nslookup
+  curl --resolve app.example.com:80:{loadbalancer ip} http://app.example.com/
+  
+- When certificates are configured with staging or acme 
+  wget --save-headers -O- app.example.com
+
+```
+
